@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    run: ubuntu --version
+    steps:
+#     - uses: actions/checkout@v2
+    - name: Install gtest
+      run: sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo apt-get install -y cmake
+    - name: Build
+      run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls
+    - name: Test
+      run: ls && cd googleTest_testing && ls && ./executeTests
