@@ -19,10 +19,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install gtest
       run: ls && cd googleTest_testing && sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo apt-get install -y cmake 
-    - name: Building googletest
-      run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls
-    - name: Testing gtest
-      run: ls && ./executeTests
+    - name: Building and testing googletest 
+      run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls ./executeTests && ls
+    - name: verifying the directory
+      run: ls
 #   - name : Install Catch2 
 #     run: ls && sudo apt-get install -y cmake protobuf-compiler && sudo apt-get install -y make 
 #   - name: building Catch2
