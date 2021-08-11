@@ -20,7 +20,7 @@ RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 RUN cd /usr/src/gtest \
     cmake CMakeLists.txt \
     make \
-    cmake CMakeLists.txt && make && ls
+    cd / && cd cmake CMakeLists.txt && make && ls
 
 # cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
