@@ -21,8 +21,8 @@ RUN cd /usr/src/gtest \
     ls
     
 RUN ls
-# building and testing googletest
-# RUN ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
+building and testing googletest
+RUN ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
        
 # building and testing catch2
 # RUN cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
