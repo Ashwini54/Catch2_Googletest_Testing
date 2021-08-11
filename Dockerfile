@@ -14,17 +14,19 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #Specifying WORK DIRECTORY, copying and running Dependencies 
 WORKDIR /
 COPY Dependencies.sh .
+COPY googleTest_testing .
+COPY Catch2_testing .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
+RUN cd /usr/src/gtest \
+    cmake CMakeLists.txt \
+    make \
+    ls
 RUN ls
-RUN cd /home/runner/work/Catch2_Googletest_Testing/Catch2_Googletest_Testing && ls
+
 # cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
-RUN ls
 
-# RUN cd /usr/src/gtest \
-#     cmake CMakeLists.txt \
-#     make \
-#     ls
+
 
 # testing googletest
 # RUN ls 
