@@ -21,7 +21,7 @@ RUN cd /usr/src/gtest \
     ls
     
 RUN ls
-building and testing googletest
+# building and testing googletest
 RUN ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
        
 # building and testing catch2
