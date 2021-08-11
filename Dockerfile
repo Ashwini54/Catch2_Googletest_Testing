@@ -22,10 +22,15 @@ RUN cd /usr/src/gtest \
     ls
     
 RUN ls
+RUN cd tmp/app && ls 
+RUN cd /home/runner/work/Catch2_Googletest_Testing/Catch2_Googletest_Testing && ls
+RUN ls
+RUN cd usr/bin && ls 
+RUN ls
 # building and testing googletest
 
 # RUN cd ..
-RUN ls && cd googleTest_testing
+# RUN ls && cd googleTest_testing
 # && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
        
 # building and testing catch2
