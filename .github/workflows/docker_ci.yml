@@ -16,7 +16,8 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag catch3_gtest_image_automate:1
+        run: ls
+#         && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
