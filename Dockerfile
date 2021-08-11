@@ -22,7 +22,7 @@ RUN cd /usr/src/gtest \
     make \
     ls
 RUN ls
-#     cd / && cd cmake CMakeLists.txt && make && ls
+RUN cd cmake CMakeLists.txt && make && ls && ./executeTests
 
 # cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
