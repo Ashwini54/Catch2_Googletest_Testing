@@ -14,11 +14,18 @@ WORKDIR /
 COPY Dependencies.sh .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 
+
+RUN cd /usr/src/gtest \
+    cmake CMakeLists.txt \
+    make \
+    ls
+    
+RUN ls
 # building and testing googletest
-RUN ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
+# RUN ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
        
 # building and testing catch2
-RUN cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
+# RUN cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
 
 
 
