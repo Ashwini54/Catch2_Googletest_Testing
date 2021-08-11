@@ -15,13 +15,13 @@ WORKDIR /
 COPY Dependencies.sh .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 
-RUN cd /usr/src/gtest \
-    cmake CMakeLists.txt \
-    make \
-    ls
+# RUN cd /usr/src/gtest \
+#     cmake CMakeLists.txt \
+#     make \
+#     ls
 
 # testing googletest
-RUN ls 
+# RUN ls 
 # && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
               
   
