@@ -1,31 +1,31 @@
-name: C/C++ CI
+# name: C/C++ CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
     
-# env:
-#   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
-#   BUILD_TYPE: Release
+# # env:
+# #   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+# #   BUILD_TYPE: Release
   
-jobs:
-  build:
+# jobs:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install gtest
-      run: ls && cd googleTest_testing && sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo apt-get install -y cmake 
-    - name: Building and testing googletest
-      run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
-    - name: verifying the directory
-      run: ls
-    - name : Install Catch2 
-      run: cd Catch2_testing && sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install -y cmake protobuf-compiler && sudo apt-get install -y make 
-    - name: Building and testing catch2 
-      run: ls && cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
-#   - name: testing catch2
-#     run: ls && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Install gtest
+#       run: ls && cd googleTest_testing && sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo apt-get install -y cmake 
+#     - name: Building and testing googletest
+#       run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
+#     - name: verifying the directory
+#       run: ls
+#     - name : Install Catch2 
+#       run: cd Catch2_testing && sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get install -y build-essential && sudo rm /var/lib/dpkg/lock-frontend && sudo dpkg --configure -a && sudo apt-get install -y tzdata && sudo apt-get install -y cmake protobuf-compiler && sudo apt-get install -y make 
+#     - name: Building and testing catch2 
+#       run: ls && cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
+# #   - name: testing catch2
+# #     run: ls && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
