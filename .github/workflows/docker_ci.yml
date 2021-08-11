@@ -27,10 +27,11 @@ jobs:
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
         - name: verify directory
           run: ls
-        - name: Build and push
-          run: ls && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1 &&  cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests
-        - name: run gtest
-          run: ls && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests
+        - name: Build 
+          run: ls && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1 
+        - name: run
+          run: docker run -t -d -- name catch_gtest_frameworkimage -d "catch3_gtest_image_automate:1" /bin/bash
+#          
       
       
         
