@@ -5,6 +5,7 @@ FROM ubuntu:20.04
 # RUN useradd -u 1234 user1
 # USER user1
 
+RUN ls
 # Set the Environment variable for Time-zone 
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -22,11 +23,9 @@ RUN cd /usr/src/gtest \
     
 RUN ls
 # building and testing googletest
-RUN cd /
-RUN cd ..
-RUN ls
+
 # RUN cd ..
-# RUN ls
+RUN ls && cd googleTest_testing
 # && cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
        
 # building and testing catch2
