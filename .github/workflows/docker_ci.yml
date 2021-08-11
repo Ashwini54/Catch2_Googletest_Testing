@@ -30,7 +30,7 @@ jobs:
         - name: Build 
           run: ls && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1 
         - name: run
-          run: docker run -t -d -- name catch_gtest_frameworkimage -d "catch3_gtest_image_automate:1" /bin/bash
+          run: docker run catch3_gtest_image_automate:1
 #          
       
       
