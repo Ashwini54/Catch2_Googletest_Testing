@@ -10,11 +10,14 @@ RUN ls
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+
 #Specifying WORK DIRECTORY, copying and running Dependencies 
 WORKDIR /
 COPY Dependencies.sh .
-RUN chmod a+x Dependencies.sh && ./Dependencies.sh && \
-cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
+RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
+RUN ls
+RUN cd /home/runner/work/Catch2_Googletest_Testing/Catch2_Googletest_Testing && ls
+# cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
 RUN ls
 
