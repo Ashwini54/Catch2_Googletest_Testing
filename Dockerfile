@@ -14,6 +14,14 @@ WORKDIR /
 COPY Dependencies.sh .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 
+# building and testing googletest
+RUN cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ./executeTests 
+
+# building and testing catch2
+RUN cd Catch2_testing && ls && sudo cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && ls && g++ 020-TestCase-1.cpp && ls && ./a.out
+
+
+
 #Testing_Googletest
     # cd /usr/src/gtest \
     # cmake CMakeLists.txt \
@@ -36,9 +44,9 @@ RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 #     g++ 020-TestCase-1.cpp \
 #     ./a.out 
 
-COPY startUpScript.sh /tmp
-COPY Dependencies.sh /tmp
+# COPY startUpScript.sh /tmp
+# COPY Dependencies.sh /tmp
 
-RUN /bin/bash -c 'chmod +x /Dependencies.sh'
-CMD ["chmod", "+x",  "/tmp/startUpScript.sh"]
-ENTRYPOINT ["sh", "/tmp/startUpScript.sh"]
+# RUN /bin/bash -c 'chmod +x /Dependencies.sh'
+# CMD ["chmod", "+x",  "/tmp/startUpScript.sh"]
+# ENTRYPOINT ["sh", "/tmp/startUpScript.sh"]
