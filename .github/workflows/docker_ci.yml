@@ -28,11 +28,14 @@ jobs:
         - name: verify directory
           run: ls
         - name: Build and push
-          id: docker_build
-          uses: docker/build-push-action@v2
-          with:
-            push: true
-            tags: ashwinis2/catch2_gtest_app:latest
+          run: ls && cd googleTest_testing && ls
+        
+        
+#         id: docker_build
+#           uses: docker/build-push-action@v2
+#           with:
+#             push: true
+#             tags: ashwinis2/catch2_gtest_app:latest
         
         
         
