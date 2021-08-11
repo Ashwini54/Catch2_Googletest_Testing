@@ -12,6 +12,8 @@ jobs:
     steps:
         - name: Check out Repo 
           uses: actions/checkout@v2
+          with:
+            repository: ${{ github.repository }}
         - name: verify directory
           run: ls
 #         - name: Set up Docker Buildx
