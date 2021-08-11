@@ -22,8 +22,6 @@ RUN cd /usr/src/gtest \
     make \
     ls
 RUN ls
-RUN cmake CMakeLists.txt && make && ls && ./executeTests
-RUN ls
 
 # cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
