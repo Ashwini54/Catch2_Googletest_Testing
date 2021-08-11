@@ -28,7 +28,7 @@ jobs:
         - name: verify directory
           run: ls
         - name: Build and push
-          run: ls && docker build --file Dockerfile --tag catch3_gtest_image_automate:1
+          run: ls && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1
       
         
         
