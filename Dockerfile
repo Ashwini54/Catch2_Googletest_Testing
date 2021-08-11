@@ -16,16 +16,13 @@ COPY Dependencies.sh .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh
 
 
+RUN ls 
+
 RUN cd /usr/src/gtest \
     cmake CMakeLists.txt \
     make \
     ls
     
-RUN ls
-RUN cd tmp/app && ls 
-RUN cd /home/runner/work/Catch2_Googletest_Testing/Catch2_Googletest_Testing && ls
-RUN ls
-RUN cd usr/bin && ls 
 RUN ls
 # building and testing googletest
 
