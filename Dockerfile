@@ -1,6 +1,6 @@
 # Dockerfile for building Catch2 and Googletest images based on ubuntu
 # Base Ubuntu image
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS builder
 
 # RUN useradd -u 1234 user1
 # USER user1
@@ -10,7 +10,7 @@ RUN ls
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-
+FROM builder AS build1
 #Specifying WORK DIRECTORY, copying and running Dependencies 
 WORKDIR /
 COPY Dependencies.sh .
@@ -19,11 +19,12 @@ COPY Catch2_testing .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
 RUN cd /usr/src/gtest \
     cmake CMakeLists.txt \
-    make \
-    ls
+    make
 RUN ls
 
-# cd googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
+FROM builder AS build2
+RUN ls 
+# googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
 
 
