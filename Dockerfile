@@ -5,25 +5,26 @@ FROM ubuntu:20.04 AS builder
 # RUN useradd -u 1234 user1
 # USER user1
 
-RUN ls
 # Set the Environment variable for Time-zone 
-ENV TZ=Asia/Kolkata
+ENV TZ=Asia/Kolkata 
+FROM builder AS build1
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-FROM builder AS build1
+FROM builder AS build2
 #Specifying WORK DIRECTORY, copying and running Dependencies 
 WORKDIR /
+FROM builder AS build3
 COPY Dependencies.sh .
 COPY googleTest_testing .
 COPY Catch2_testing .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
+FROM builder AS build4
 RUN cd /usr/src/gtest \
     cmake CMakeLists.txt \
     make
+FROM builder AS build5
 RUN ls
 
-FROM builder AS build2
-RUN ls 
 # googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
 
