@@ -30,9 +30,7 @@ jobs:
         - name: Build 
           run: ls && docker build . --file Dockerfile --tag catch3_gtest_image_automate:1  && ls
         - name: run
-          run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash -c cd /googleTest_testing
-        - name: check
-          run: ls && cat CMakeLists.txt && cmake CMakeLists.txt && cat CMakeLists.txt && ls && make && ls
+          run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash -c cd /googleTest_testing && cat CMakeLists.txt && cmake CMakeLists.txt && cat CMakeLists.txt && ls && make && ls
 #           && ./executeTest
 #          
       
