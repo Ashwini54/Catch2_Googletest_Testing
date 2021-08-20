@@ -6,14 +6,14 @@ FROM ubuntu:20.04 AS builder
 # USER user1
 
 # Set the Environment variable for Time-zone 
-ENV TZ=Asia/Kolkata 
 FROM builder AS build1
-COPY --from=builder /go/src/app/ /app/
+ENV TZ=Asia/Kolkata 
+FROM builder AS build2
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
 #Specifying WORK DIRECTORY, copying and running Dependencies 
-FROM builder AS build2
+FROM builder AS build3
 WORKDIR /
 COPY Dependencies.sh .
 COPY googleTest_testing .
