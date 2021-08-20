@@ -18,11 +18,13 @@ WORKDIR /
 COPY Dependencies.sh .
 COPY googleTest_testing .
 COPY Catch2_testing .
-RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
-RUN cd /usr/src/gtest \
-    cmake CMakeLists.txt \
-    make
+RUN chmod a+x Dependencies.sh && ./Dependencies.sh &&
 RUN ls
+
+# RUN cd /usr/src/gtest \
+#     cmake CMakeLists.txt \
+#     make
+
 
 # googleTest_testing && ls && cmake CMakeLists.txt && make && ls && ls && ./executeTests
 
@@ -64,6 +66,7 @@ RUN ls
 # COPY startUpScript.sh /tmp
 # COPY Dependencies.sh /tmp
 
-# RUN /bin/bash -c 'chmod +x /Dependencies.sh'
+RUN /bin/bash -c 'chmod +x /Dependencies.sh'
+RUN ls
 # CMD ["chmod", "+x",  "/tmp/startUpScript.sh"]
 # ENTRYPOINT ["sh", "/tmp/startUpScript.sh"]
