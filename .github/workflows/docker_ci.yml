@@ -34,15 +34,16 @@ jobs:
         - name: run
           run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash && cd Catch2_testing && ls && cmake -Bbuild -H. -DBUILD_TESTING=OFF && sudo cmake --build build/ --target install && cd examples && g++ 020-TestCase-1.cpp && ./a.out
           
-        - name: Catch2
+        - name: gtest
           run: ls
           
-        - name: Catch2_Build 
+        - name: gtest_Build 
           run: |
            ls && docker build --rm=false . --file Dockerfile --tag catch3_gtest_image_automate:1  && ls 
            
-        - name: run catch2
-          run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash && cd googleTest_testing && cmake CMakeLists.txt && make && ./executeTests
+        - name: run gtest
+          run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash && cd googleTest_testing && cmake CMakeLists.txt && cat CMakeLists.txt
+#           && make && ./executeTests
           
           
 #        
