@@ -8,6 +8,7 @@ FROM ubuntu:20.04 AS builder
 # Set the Environment variable for Time-zone 
 ENV TZ=Asia/Kolkata 
 FROM builder AS build1
+COPY --from=builder /go/src/app/ /app/
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
