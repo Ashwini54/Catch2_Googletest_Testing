@@ -16,11 +16,12 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 FROM builder AS build3
 WORKDIR /
 COPY Dependencies.sh .
-COPY googleTest_testing .
-COPY Catch2_testing .
+# COPY googleTest_testing .
+# COPY Catch2_testing .
 RUN chmod a+x Dependencies.sh && ./Dependencies.sh 
 RUN ls
 
+RUN git clone --single-branch --branch v2.x https://github.com/catchorg/Catch2.git
 # RUN cd /usr/src/gtest \
 #     cmake CMakeLists.txt \
 #     make
