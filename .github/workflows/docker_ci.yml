@@ -40,7 +40,7 @@ jobs:
         - name: run gtest
           run: ls && docker run "catch3_gtest_image_automate:1" /bin/bash && cd googleTest_testing && cmake CMakeLists.txt && make && ./executeTests
           
-          
+        
 #        
 #           -c "ls && cd /googleTest_testing && cat CMakeLists.txt && cmake CMakeLists.txt && cat CMakeLists.txt && ls && make && ls"
 #           && ./executeTest
